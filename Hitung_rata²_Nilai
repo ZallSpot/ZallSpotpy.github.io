@@ -1,0 +1,47 @@
+def hitung_rata_rata_nilai():
+    # Input Data Mahasiswa
+    nama_mahasiswa = input("Masukkan nama mahasiswa: ")
+    jumlah_mata_pelajaran = int(input("Masukkan jumlah mata pelajaran: "))
+
+    # Inisialisasi total nilai
+    total_nilai = 0
+    nilai_mata_pelajaran = []
+
+    # Input Nilai dan Hitung Rata-rata
+    for i in range(1, jumlah_mata_pelajaran + 1):
+        nilai_ujian = float(input(f"Masukkan nilai ujian untuk mata pelajaran ke-{i}: "))
+        nilai_tugas = float(input(f"Masukkan nilai tugas untuk mata pelajaran ke-{i}: "))
+
+        # Hitung rata-rata mata pelajaran
+        rata_rata_mata_pelajaran = (nilai_ujian + nilai_tugas) / 2
+        total_nilai += rata_rata_mata_pelajaran
+        nilai_mata_pelajaran.append(rata_rata_mata_pelajaran)
+
+        print(f"Rata-rata untuk mata pelajaran ke-{i} adalah: {rata_rata_mata_pelajaran:.2f}")
+
+    # Hitung dan Tampilkan Rata-rata Keseluruhan
+    rata_rata_keseluruhan = total_nilai / jumlah_mata_pelajaran
+
+    # Percabangan untuk menentukan predikat nilai
+    if rata_rata_keseluruhan >= 90:
+        predikat = "A"
+    elif rata_rata_keseluruhan >= 80:
+        predikat = "B"
+    elif rata_rata_keseluruhan >= 70:
+        predikat = "C"
+    elif rata_rata_keseluruhan >= 60:
+        predikat = "D"
+    else:
+        predikat = "E"
+
+    print(f"Nama Mahasiswa: {nama_mahasiswa}")
+    print(f"Rata-rata nilai keseluruhan: {rata_rata_keseluruhan:.2f}")
+    print(f"Predikat nilai: {predikat}")
+
+    # Output nilai mata pelajaran dalam bentuk list
+    print("Nilai mata pelajaran:")
+    for i, nilai in enumerate(nilai_mata_pelajaran, start=1):
+        print(f"Mata pelajaran ke-{i}: {nilai:.2f}")
+
+# Jalankan fungsi
+hitung_rata_rata_nilai()
